@@ -14,14 +14,30 @@
     font-weight: 900;
     font-style: normal;
 }
+:before,
+:after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--white-background: #fff;
+	--orange-text: #ff7f50;
+	--gray-text: #808080;
+}
 
 body {
     font-family: "Lato";
-    background-color: white;
+    background-color: rgb(244, 233, 220);
+    margin: 0;
+    padding: 0
 }
 
 header {
     font-family: "Intro";
+    margin: 0;
+    padding: 0
 }
 .fas {
     color: grey;
@@ -49,6 +65,8 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
+  padding: 2em;
+  background-color: white;
 }
 
 
@@ -64,153 +82,112 @@ nav div:nth-child(2) a {
   margin-right: 20px;
 }
 
+/*cuadraro gris + form*/
 
-  
- 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.image-placeholder, .order-section {
   width: 100%;
-  height: 600px;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
-
-/* Styles for the grey-background div */
-.grey-background {
-  background-color: grey;
-  width: 100%;
-  height: 300px; /* Default height for mobile */
+.image-placeholder {
+	width: 100%;
+  max-width: 100vw;
+	height: 400px;
+	background-color: var(--gray-text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	& img {
+		width: 50%;
+		height: 50%;
+	}
 }
 
-/* Styles for the form container */
-.wrapper > div {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  flex: 1;
+.order-section {
+	width: 100%;
+	height: auto;
+	background: linear-gradient(#bdef51, #2eae04);
+	display: flex;
+	padding: 2.3em;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	& h2 {
+		text-transform: uppercase;
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+		font-size: 1.8em;
+		letter-spacing: 2px;
+		color: var(--white-background);
+	}
+	& form {
+		width: 100%;
+		& img {
+			width: 14px;
+			height: 14px;
+			fill: var(--orange-text);
+		}
+		& .label-form {
+			display: block;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			padding: 14px;
+			background-color: white;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			cursor: text;
+		}
+		.label-form:first-child {
+			margin-top: 1em;
+		}
+		.label-form input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			cursor: text;
+		}
+    .find-food {
+			margin-top: 1em;
+			padding-top: 1em;
+			& button {
+				text-transform: uppercase;
+				border-radius: 6px;
+				background-color: var(--orange-text);
+				color: var(--white-background);
+				border: none;
+				padding: 1em 2em;
+				font-family: 'Lato', sans-serif;
+				font-weight: 700;
+				font-size: 1em;
+				cursor: pointer;
+				transition: all 0.3s;
+				&:hover {
+					background-color: #ff6347;
+				}
+			}
+		}
+	}
 }
-.wrapper > div:nth-child(2) {
-  background-color: limegreen;
-}
 
-
-
-
-
-
-
-.wrapper > div:nth-child(2) > div form {
-  margin: 0 auto;
-  width: 100%;
-  /* padding: 0 15%; */
-}
-
-
-
-.wrapper > div:nth-child(2) input {
-  background-color: white;
-  width: 80%;  
-  margin: 0 auto;
-
+.label-form input::placeholder {
+  color: lightgrey;
   
 }
 
-.wrapper > div:nth-child(2) button {
-  background-color: orange;
-  color: white;
-  text-transform: uppercase;
-  border: none;
-  padding: 10px 20px;
-  margin-left: 30px;
-  border-radius: 5px;
-  font-weight: 700;
- 
-}
 
-.wrapper > div:nth-child(2) h2 {
-  text-align: left;
-  margin-left: 30px;
-  color: white;
-  text-transform: uppercase;
-  max-width: 200px;
+
   
-}
 
 
 
-  form input {
-    display: block;
-    
-    margin: 0 auto;
+  /*first section*/
+  .how-it-works {
     background-color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 0;
-    color: lightgrey;
+    overflow: auto;
   }
-
-  /*intento imagenes*/
- 
- 
-  form .input-wrapper {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-  }
-  
-  .input {
-    position: relative;
-    width: 100%;
-    box-sizing: border-box; /* include padding and border in element's total width and height */
-    padding-left: 40px; /* adjust as needed */
-  }
-  
-  form .input-wrapper::before {
-    content: '';
-    position: absolute;
-    left: 55px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px; /* adjust as needed */
-    height: 20px; /* adjust as needed */
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 1;
-  }
-  
-  form .input-wrapper:nth-of-type(1)::before {
-    background-image: url('../../images/pin.svg');
-  }
-  
-  form label:nth-of-type(2) .input-wrapper::before {
-    background-image: url('../../images/bbq.svg');
-  }
-
-  
-
-
-  form input:first-of-type {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom: 1px solid lightgrey;
-  }
-  
-  form input:last-of-type {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-  
-  form input::placeholder {
-    color: lightgrey;
-  }
-
-  /*firs section*/
   section h2 {
     text-align: center;
     text-transform: uppercase;
@@ -249,7 +226,7 @@ nav div:nth-child(2) a {
   /*dishes*/
 
   .dishes-section {
-    background-color: beige;
+    background-color: rgb(244, 233, 220);
     padding: 20px;
   }
 
@@ -259,8 +236,8 @@ nav div:nth-child(2) a {
     display: flex;
     flex-direction: column;
 
-    margin:10px; /* adjust as needed */
-    background-color: white; /* set the background color of the card */
+    margin:10px; 
+    background-color: white; 
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     border-radius: 5px;
     overflow: hidden;
@@ -295,7 +272,7 @@ nav div:nth-child(2) a {
   
   .title h5 {
     font-weight: normal;
-    font-size: 0.8em; /* adjust as needed */
+    font-size: 0.8em; 
   }
   
   .price-button {
@@ -338,7 +315,7 @@ nav div:nth-child(2) a {
 
   .rating div {
     display: flex;
-    gap: 2px; /* adjust this value to get the desired space between the SVGs */
+    gap: 2px; 
   }
 
   
@@ -374,7 +351,6 @@ nav div:nth-child(2) a {
   aside {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: flex-start; */
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
@@ -400,17 +376,17 @@ nav div:nth-child(2) a {
  
 
   .aside-card .svg-container svg {
-    width: 60%; /* adjust as needed */
+    width: 60%; 
     height: auto;
   }
 
   .aside-card-content h3 {
-    margin: 10px 0 10px 0; /* add bottom margin */
+    margin: 10px 0 10px 0; 
     text-align: center; 
   }
   
   .aside-card-content p {
-    margin: 10px 0; /* add top and bottom margin */
+    margin: 10px 0; 
     text-align: center; 
   }
 
@@ -419,7 +395,7 @@ nav div:nth-child(2) a {
   /*restaurant by ciusine*/
 .cuisine-section .card-container .dish-card  {
   display: flex !important;
-  height: 400px !important; /* Add this line */
+  height: 400px !important;
 
 }
  
@@ -469,9 +445,15 @@ nav div:nth-child(2) a {
   }
 
   /*footer*/
+  footer {
+    width: 100%;
+  }
+ 
   .flex-footer {
     display: flex;
     flex-direction: column;
+    padding: 2em;
+    background-color: white;
   }
 
   .flex-footer h3 {
@@ -487,7 +469,8 @@ nav div:nth-child(2) a {
 
   .flex-footer ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0; 
+    margin: 0;
   }
 
   .flex-footer ul li {
@@ -496,9 +479,10 @@ nav div:nth-child(2) a {
   }
 
   .copy {
+    padding: 2em;
     display: flex;
     flex-direction: column;
-    background-color: beige;
+    background-color: rgb(244, 233, 220);
     padding: 20px 30px;
   }
 
@@ -543,21 +527,40 @@ nav div:nth-child(2) a {
     display: inline-block;
   }
 
-  .wrapper {
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-    height: 300px;
+
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: stretch; 
   }
 
-  .grey-background {
-    width: 50%;
-    height: auto;
+  .image-placeholder, .order-section {
+    width: 100%;
+    padding-bottom: 0;
+     
+  
   }
 
-  .wrapper > div:nth-child(2) {
-    width: 50%;
+  .order-section {
+    height: auto; 
+    
   }
+
+  .order-section h2 {
+    width: 100%; 
+  }
+  .order-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+  }
+
+  .order-section .label-form {
+    width: 100%; 
+  }
+
+
 
   .section-container {
     display: flex;
@@ -573,20 +576,20 @@ nav div:nth-child(2) a {
   }
   
   .dish-card {
-    flex: 0 0 24%; /* This means the card will not grow or shrink, and base size is 24% of the container width */
+    flex: 0 0 24%; 
     margin: 2px;
-    margin-bottom: 1em; /* Add some vertical spacing between the rows */
+    margin-bottom: 1em; 
   }
 
   .aside-card {
-    width: calc(25% - 10px); /* adjust as needed */
+    width: calc(25% - 10px); 
     flex-basis: calc(25% - 10px);
   }
 
   .aside-card img {
-    width: 30%; /* adjust as needed */
+    width: 30%; 
     height: auto;
-    max-height: 50%; /* adjust as needed */
+    max-height: 50%; 
     object-fit: contain;
   }
 
@@ -597,7 +600,7 @@ nav div:nth-child(2) a {
   .flex-footer {
  
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .copy {
